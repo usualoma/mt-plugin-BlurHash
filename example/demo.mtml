@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style type="text/css">
+      .blurhash-container canvas {
+        max-width: 100%;
+        height: auto;
+        position: absolute;
+      }
+      .blurhash-container img {
+        max-width: 100%;
+        height: auto;
+      }
+    </style>
+    <script
+      src="<mt:StaticWebPath />plugins/BlurHash/dist/demo.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <h1><mt:BlogName /></h1>
+    <mt:Assets sort_order="ascend">
+      <h2><mt:AssetLabel /></h2>
+      <div class="blurhash-container">
+        <img data-hash="<mt:AssetBlurHash />" width="<mt:AssetProperty property="image_width" />" height="<mt:AssetProperty property="image_height" />"
+        src="<mt:AssetURL />" loading="lazy" />
+      </div>
+    </mt:Assets>
+  </body>
+</html>
