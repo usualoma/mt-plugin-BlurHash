@@ -45,7 +45,7 @@ sub _get_image_data {
 }
 
 sub update_blur_hash {
-    my ( $eh, $obj ) = @_;
+    my ( $eh, $obj, $components_x, $components_y ) = @_;
 
     my $file_path  = $obj->file_path;
     my $fmgr       = $obj->blog ? $obj->blog->file_mgr : MT::FileMgr->new('Local');
@@ -63,7 +63,7 @@ sub update_blur_hash {
 
     my $img_data = _get_image_data( $img, $w, $h );
 
-    my $hash = encode_blurhash($img_data);
+    my $hash = encode_blurhash( $img_data, $components_x, $components_y );
 
     $obj->meta( 'blur_hash', $hash );
 
@@ -78,8 +78,11 @@ sub asset_blur_hash {
     return '' if $asset->class ne 'image';
 
     if ( !$asset->meta('blur_hash') ) {
-        update_blur_hash( $ctx, $asset )
-            or return;
+        update_blur_hash(
+            $ctx, $asset,
+            $args->{components_x} || undef,
+            $args->{components_y} || undef
+        ) or return;
         $asset->save;
     }
 
