@@ -25,6 +25,12 @@ mt-static directory only contains files for demonstration. Installing this is op
 
 * Movable Type 7
 
+## Supported ImageDrivers
+
+* ImageMagick
+* GraphicsMagick
+* Imager
+
 ## LICENSE
 
 Copyright (c) 2021 Taku AMANO
