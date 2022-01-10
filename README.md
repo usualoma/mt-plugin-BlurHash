@@ -33,7 +33,7 @@ mt-static directory only contains files for demonstration. Installing this is op
 
 ## LICENSE
 
-Copyright (c) 2021 Taku AMANO
+Copyright (c) 2021 Taku Amano
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
